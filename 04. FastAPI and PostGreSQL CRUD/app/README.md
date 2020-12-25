@@ -1,6 +1,6 @@
 ### My First try at building a CRUD app with FastAPI
 
-Building a CRUD (bookstore) API with FastAPI and PostGreSQL with full CRUD capabilities and user authentication.
+Building a CRUD (bookstore) API with FastAPI and PostGreSQL with some CRUD capabilities and user authentication.
 
 Tools/Technologies and Libraries used :- 
 - Python (FastAPI, Pydantic and SQLAlchemy)
@@ -33,6 +33,7 @@ $ python main.py
 - View app at http://localhost:8000 
 - View interactive docs UI at http://localhost:8000/docs 
 
+![Open API docs UI](swaggerinteractiveui.PNG)
 
 
 
