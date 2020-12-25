@@ -33,7 +33,7 @@ $ python main.py
 - View app at http://localhost:8000 
 - View interactive docs UI at http://localhost:8000/docs 
 
-![Open API docs UI](swaggerinteractiveui.PNG)
+![Open API docs UI](openapidocsui.PNG)
 
 
 
