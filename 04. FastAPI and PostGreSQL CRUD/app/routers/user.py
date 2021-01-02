@@ -37,12 +37,6 @@ def login(user: UserLoginSchema, db : Session = Depends(get_db)):
     except ValidationError as err:
         raise HTTPException(status_code = 400, detail = err)
 
-@router.get('/', response_model = dict)
-def get_user(token : Optional[str] = Header(None), db : Session = Depends(get_db)):
-    if not token:
-        raise HTTPException(status_code = 400, detail = "Please enter your auth token.")
-    
-    return decodeJWT(token)
     
 
 
