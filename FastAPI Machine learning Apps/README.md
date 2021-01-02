@@ -22,4 +22,4 @@ $ python main.py
 
 Navigate to http://localhost:5000 in your browser :- 
 
-![] [fastapimlapps.PNG]
+<img src = "fastapimlapps.PNG" alt = "Fast API ML apps" />
