@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path = '/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>FastAPI Machine learning apps</title>
+</head>
+<body>
+    <section class="main">
+        <div class="container">
+            <div class="container__header">
+                <h2>Machine learning apps using FastAPI</h2>
+                <p>A collection of some basic Machine learning apps built using FastAPI</p>
+            </div>
+            
+            <div class="container__row">
+                <div class = "container__card">
+                    <img  src = "{{ url_for('static', path = '/images/heart-rate.png') }}" alt = "heartdiseaseprediction" />
+                    <h3><span>01.</span> Heart Disease Prediction</h3>
+                    <p>A Machine learning binary classifier for predicting the possibility of a heart disease from several features.</p>
+                    <a href = "/heartdisease"><button class = "btn card__btn">View Project <i class = "fa fa-external-link"></i></button></a>
+                </div>
+
+                <div class = "container__card">
+                    <img  src = "{{ url_for('static', path = '/images/happy.png') }}" alt = "sentimentanalysis" />
+                    <h3><span>02.</span> Sentiment Analysis (NLP)</h3>
+                    <p>Sentiment Analysis for Movie Reviews to classify the movie review into a positive or negative sentiment.</p>
+                    <a href = "/moviesentiment"><button class = "btn card__btn">View Project <i class = "fa fa-external-link"></i></button></a>
+                </div>
+
+                <div class = "container__card">
+                    <img  src = "{{ url_for('static', path = '/images/mask.png') }}" alt = "computervision" />
+                    <h3><span>03.</span> Computer Vision API</h3>
+                    <p>Deploying a Computer Vision API using FastAPI for multi-class classification.</p>
+                    <button class = "btn card__btn">View Project <i class = "fa fa-external-link"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

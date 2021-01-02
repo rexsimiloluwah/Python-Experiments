@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path = '/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <section class="main">
+        <div class="container">
+
+        <div class = "modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <span class = 'emoji'></span>
+                    <p></p>
+                    <small></small>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+            
+
+            <div class="container__header">
+                <h2>Heart Disease Prediction</h2>
+                <p>Predict your likelihood of developing a heart disease.</p>
+            </div>
+            
+            <div class="container__row">
+                <form>
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "age">Age</label>
+                            <input type = "number" name = "age" id = "age" placeholder = "Your current age i.e. 52" required/>
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "gender">Gender (Male/Female)</label>
+                            <select name = "gender" id = "gender">
+                                <option value = "male">Male</option>
+                                <option value = "female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "weight">Weight (kg)</label>
+                            <input type="number" name = "weight" id = "weight" placeholder = "Your weight in kg. i.e. 67" step = "0.1"/>
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "height">Height (ft)</label>
+                            <input type = "number" name = "height" id = "height" placeholder = "Your height in feet i.e. 5.6" step = "0.1" required/>
+                        </div>
+                    </div>
+
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "sysBP">Blood Pressure (mmHg)</label>
+                            <input type="number" name = "sysBP" id = "sysBP" placeholder = "Your blood pressure in mmHg i.e 200" step = "0.1" required/>
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "totChol">Total Cholesterol (mg/DL)</label>
+                            <input type = "number" name = "totChol" id = "totChol" placeholder = "Your cholesterol level in mg/DL I.E 130" step = "0.1" required/>
+                        </div>
+                    </div>
+
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "cigsPerDay">Number of Cigarettes you take (per day)</label>
+                            <input type = "number" name = "cigsPerDay" id = "cigsPerDay" placeholder="How many cigarettes do you smoke in a day ? i.e. 4" required/>
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "diaBP">Diabetic BP</label>
+                            <input type = "number" name = "diaBP" id = "diaBP" placeholder="What is your diabetic Blood pressure in mmHg ? i.e. 160" step = "0.1" required/>
+                        </div>
+                    </div>
+
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "prevalentHyp">Do you have prevalent Hypertension ?</label>
+                            <select name = "prevalentHyp" id = "prevalentHyp">
+                                <option value = "yes">Yes</option>
+                                <option value = "no">No</option>
+                            </select>
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "diabetes">Do you have Diabetes ?</label>
+                            <select name = "diabetes" id = "diabetes">
+                                <option value = "yes">Yes</option>
+                                <option value = "no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class = "form__group--row">
+                        <div class = "form__group">
+                            <label for = "sysBP">Glucose (mg/DL)</label>
+                            <input type = "number" name = "glucose" id = "glucose" placeholder="What is your glucose level (mg/DL) ?" step = "0.1" required />
+                        </div>
+
+                        <div class = "form__group">
+                            <label for = "BPMeds">Are you on BP related medications ?</label>
+                            <select name = "BPMeds" id = "BPMeds">
+                                <option value = "yes">Yes</option>
+                                <option value = "no">No</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                   
+                    <div class = "form__group">
+                        <label for = "prevalentStroke">Do you have prevalent Stroke ?</label>
+                        <select name = "prevalentStroke" id = "prevalentStroke">
+                            <option value = "yes">Yes</option>
+                            <option value = "no">No</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn submit__btn">Predict status <div class = "loader"></div></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const predictBtn = document.querySelector(".submit__btn");
+        const form = document.querySelector("form");
+        const modal = document.getElementById("modal")
+        const emoji = document.querySelector(".modal-body span.emoji")
+        const predictionText = document.querySelector(".modal-body p")
+        const predictionTextSmall = document.querySelector(".modal-body small")
+
+        document.querySelector(".close").addEventListener("click", () => {
+            modal.style.display = "none"
+        })
+
+        form.addEventListener("submit", (e) => {
+            let data = {}
+            e.preventDefault();
+            document.querySelector(".loader").style.display = "inline-block";
+            const formData = new FormData(e.target);
+            for (let pair of formData.entries()){
+                // console.log(pair[0], pair[1])
+                data[pair[0]] = pair[1]
+            }
+
+            console.log(JSON.stringify(data))
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/heartdiseasemodel/predict", true);
+            // Set the request header
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() { 
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    console.log("Done")
+                }
+            }
+            xhr.onload = function () {
+                modal.style.display = "block";
+                document.querySelector(".loader").style.display = "none";
+                const response = JSON.parse(this.responseText);
+                if (response.prediction === 0 || response.prediction === 1){
+                    emoji.innerText = response.prediction == 1 ? '😞' : ' 😇'
+                    predictionText.innerHTML = `The model predicted :- <b>${ response.prediction == 1 ? 'YES' : 'NO'}</b>`
+                    predictionTextSmall.innerHTML = `The model is ${Math.round(response.probability * 100)}% confident.`
+                }
+                else{
+                    emoji.innerText = '😥'
+                    predictionText.innerHTML = 'An error occurred.'
+                    predictionTextSmall.innerHTML = ''
+                }
+                
+            };
+            xhr.send(JSON.stringify(data));
+        })
+    </script>
+</body>
+</html>
