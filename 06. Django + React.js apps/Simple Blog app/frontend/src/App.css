@@ -1,0 +1,241 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  background : #343a40;
+}
+
+#root{
+  background : #343a40;
+  color: #fff;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .header-text h1{
+  font-family: 'Signika', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  text-shadow: -1px -1px 0 #212337, 1px -1px 0 #212337, -1px 1px 0 #212337, 1px 1px 0 #212337;
+}
+
+.header .header-text p{
+  text-align: center;
+  font-family: 'Signika', sans-serif;
+  font-size: 25px;
+}
+
+.header .header-bg{
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: 270%;
+  background: url(/line-bg.svg) 50% no-repeat;
+}
+
+.social-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a{
+  position: relative;
+  z-index: 9999;
+}
+
+.social-icons a i{
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid #fff;
+  margin: 0px 3px;
+  border-radius: 10px;
+  transition: .5s ease-in-out;
+}
+
+.social-icons a i:hover{
+  color: #212337;
+  background: #fff;
+  border: 2px solid #212337;
+  transform: scale(1.1);
+}
+
+.social-icons a i:hover::before{
+  top: 65%;
+  left: 5%;
+  height: 2px;
+  width: 95%;
+  background: #fff;
+}
+
+.blog-header h1{
+  font-family: "Signika", sans-serif;
+  font-size: 30px;
+  color: #fff;
+  text-shadow: -1px -1px 0 #212337, 1px -1px 0 #212337, -1px 1px 0 #212337, 1px 1px 0 #212337;
+}
+
+.pretty-underline{
+  background-image: linear-gradient(120deg, rgb(162, 150, 150) 0%, #fff 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+  padding: 10px;
+}
+
+.card{
+  border-radius: 20px !important;
+}
+
+.card-body{
+  background: #212337;
+  color: #fff;
+  position: relative;
+  z-index: 9999;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-img{
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.date_created p{
+  color: #fff;
+}
+
+a{
+  position: relative;
+  z-index: 9999;
+  text-decoration: none;
+  color: inherit;
+}
+
+#color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.6;
+}
+
+.detail-header h1, .detail-header p{
+  text-align: center;
+  text-shadow: -1px -1px 0 #212337, 1px -1px 0 #212337, -1px 1px 0 #212337, 1px 1px 0 #212337;
+}
+
+
+.arrow-down i{
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  font-size: 40px;
+  animation: arrow-animate .5s infinite alternate-reverse;
+}
+
+@keyframes arrow-animate{
+  0%{
+    transform: scaleY(1);
+  }
+
+  100%{
+    transform: scaleY(1.2);
+  }
+}
+
+.description{
+  background: #212337;
+  padding: 20px 10px;
+  border-left: 5px solid rgb(15, 15, 29);
+}
+
+.content{
+  line-height: 30px;
+  margin: 20px 0px;
+}
+
+ul.category-filter{
+  list-style: none;
+  display: inline-block;
+  margin: 10px auto;
+  z-index: 9999;
+  position: relative;
+}
+
+ul.category-filter li{
+  display: inline;
+  padding: 0px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Signika', sans-serif;
+  position: relative;
+  transition: .1s ease-in-out;
+}
+
+ul.category-filter li:hover{
+  color: #212337 !important;
+  cursor: pointer;
+  transform: scale(1.5) !important;
+}
+
+ul.category-filter li a{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+ul.category-filter li a:hover{
+  color: #212337 !important;
+}
+
+ul.category-filter li.active a{
+  color: #212337 !important;
+}
+
+ul.category-filter li.active a::before{
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 5px;
+  bottom: 4%;
+  left: 0%;
+  background: #212337;
+  padding: 0px 10px;
+  text-align: center;
+  margin: -5px 0px;
+  color: #212337;
+}
+
+
+ul.category-filter li a:hover::before{
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 5px;
+  bottom: 4%;
+  left: 0%;
+  background: #212337;
+  padding: 0px 10px;
+  text-align: center;
+  margin: -5px 0px;
+}

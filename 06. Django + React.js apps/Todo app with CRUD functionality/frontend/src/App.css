@@ -1,0 +1,148 @@
+#root{
+  -webkit-box-sizing: 'border-box';
+  -moz-box-sizing: 'border-box';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Signika', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #a8c3b2;
+}
+
+#root::-webkit-scrollbar-track {
+  background: #FFF;
+}
+#root::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 99, 71,0.6) ;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+#root::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.header{
+  background: url(/hero-bg.png), #a8c3bc;
+  width: 100%;
+  padding: 35px 0px;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background-size: 20px 40px;
+  background-image: radial-gradient(circle at 10px -15px, transparent 20px, #fff 21px);
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 15px;
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle at 10px 26px, #fff 20px, transparent 21px);
+}
+
+.form-control:focus{
+  outline: none !important;
+  background-image: none !important;
+  border: 1px solid #a8c3bc !important;
+  box-shadow: none !important;
+}
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+.task input[type = "checkbox"]:checked:before{
+  border: 2px solid #a8c3b2 !important;
+  background-color: #a8c3b2 !important;
+
+}
+
+.task span.title{
+  margin: 0px 5px;
+  vertical-align: middle;
+}
+
+
+
+.task span.edit-btn, .task span.delete-btn{
+  float: right;
+  font-size: 20px;
+  padding: 0px 3px;
+  transition: .3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  color: #a8c3b2;
+}
+
+.task span.delete-btn:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  color: rgb(255,0,0);
+}
+
+.task span.edit-btn:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  color: #00ff00;
+}
+
+.card-body{
+  background: #f3fee1;
+}
+
+.task .card-body span{
+  float: right;
+}
+
+.row ul{
+  list-style-type : none;
+  padding-inline-start: 0px !important;
+}
+
+.col-header{
+  background: #a8c3b2;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid #28a547;
+  border-radius: 20px;
+}
+
+.completed ul li .title{
+  text-decoration: line-through;
+}
+
+form input, 
+form select{
+  width: 100%;
+}
+
+#completed {
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+#completed-label {
+  float: left;
+  padding-left: 3px;
+}
