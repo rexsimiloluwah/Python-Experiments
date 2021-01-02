@@ -1,0 +1,8 @@
+# DEPENDENCIES 
+
+pip install djangorestframework
+pip install django-filter # For Filtering support
+pip install markdown # For Browsable API support
+
+
+The accounts app is used to manage accounts in this project (API accounts and authorization !)
