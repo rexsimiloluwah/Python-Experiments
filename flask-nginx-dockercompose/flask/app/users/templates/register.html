@@ -1,0 +1,32 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+Register to Flasko
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <h1>Register to Flasko</h1>
+            <strong>{{message}}</strong>
+            <form method="POST" class="border border-light">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.name.label(class_="form-label") }}
+                    {{ form.name(class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class_="form-label") }}
+                    {{ form.email(class_="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class_="form-label") }}
+                    {{ form.password(class_="form-control") }}
+                </div>
+
+                {{ form.submit(class_="btn btn-primary d-block") }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

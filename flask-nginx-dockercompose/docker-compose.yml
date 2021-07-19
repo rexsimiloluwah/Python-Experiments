@@ -1,0 +1,43 @@
+version : "3.7"
+
+services:
+  flask:
+    build: ./flask/app
+    container_name: flask
+    restart: always 
+    links:
+      # The network connection to the mysql service
+      - mysql
+    depends_on:
+      # It will build these images first
+      - mysql
+    environment:
+      # Environment variables
+      APP_NAME: flaskapp
+      DB_HOST: mysql
+      DB_NAME: flasko 
+      DB_USER: flasko
+      DB_PASSWORD: adetoyosi
+    expose:
+      - 5050
+
+  mysql:
+    # Using the mysql 5.7 base image
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: adetoyosi
+      MYSQL_USER: flasko 
+      MYSQL_DATABASE: flasko 
+      MYSQL_PASSWORD: adetoyosi
+    # ports:
+    #   - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+  nginx:
+    build: ./nginx
+    container_name: nginx 
+    restart: always 
+    ports:
+      - "8040:8040"
